@@ -21,7 +21,8 @@ THIS SOFTWARE.
 // utilized in the computations.
 //
 // Example:
-//     imgResized := resize.Resize(1000, 0, imgOld, resize.MitchellNetravali)
+//
+//	imgResized := resize.Resize(1000, 0, imgOld, resize.MitchellNetravali)
 package resize
 
 import (
@@ -121,7 +122,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(temp, i, cpus).(*image.RGBA)
 			go func() {
 				defer wg.Done()
-				resizeRGBA(input, slice, scaleX, coeffs, offset, filterLength)
+				resizeRGBA(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -133,7 +134,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(result, i, cpus).(*image.RGBA)
 			go func() {
 				defer wg.Done()
-				resizeRGBA(temp, slice, scaleY, coeffs, offset, filterLength)
+				resizeRGBA(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -150,7 +151,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(temp, i, cpus).(*image.RGBA)
 			go func() {
 				defer wg.Done()
-				resizeNRGBA(input, slice, scaleX, coeffs, offset, filterLength)
+				resizeNRGBA(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -162,7 +163,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(result, i, cpus).(*image.RGBA)
 			go func() {
 				defer wg.Done()
-				resizeRGBA(temp, slice, scaleY, coeffs, offset, filterLength)
+				resizeRGBA(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -182,7 +183,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(temp, i, cpus).(*ycc)
 			go func() {
 				defer wg.Done()
-				resizeYCbCr(in, slice, scaleX, coeffs, offset, filterLength)
+				resizeYCbCr(in, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -193,7 +194,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(result, i, cpus).(*ycc)
 			go func() {
 				defer wg.Done()
-				resizeYCbCr(temp, slice, scaleY, coeffs, offset, filterLength)
+				resizeYCbCr(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -210,7 +211,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(temp, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				resizeRGBA64(input, slice, scaleX, coeffs, offset, filterLength)
+				resizeRGBA64(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -222,7 +223,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(result, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				resizeRGBA64(temp, slice, scaleY, coeffs, offset, filterLength)
+				resizeRGBA64(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -239,7 +240,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(temp, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				resizeNRGBA64(input, slice, scaleX, coeffs, offset, filterLength)
+				resizeNRGBA64(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -251,7 +252,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(result, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				resizeRGBA64(temp, slice, scaleY, coeffs, offset, filterLength)
+				resizeRGBA64(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -268,7 +269,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(temp, i, cpus).(*image.Gray)
 			go func() {
 				defer wg.Done()
-				resizeGray(input, slice, scaleX, coeffs, offset, filterLength)
+				resizeGray(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -280,7 +281,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(result, i, cpus).(*image.Gray)
 			go func() {
 				defer wg.Done()
-				resizeGray(temp, slice, scaleY, coeffs, offset, filterLength)
+				resizeGray(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -297,7 +298,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(temp, i, cpus).(*image.Gray16)
 			go func() {
 				defer wg.Done()
-				resizeGray16(input, slice, scaleX, coeffs, offset, filterLength)
+				resizeGray16(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -309,7 +310,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(result, i, cpus).(*image.Gray16)
 			go func() {
 				defer wg.Done()
-				resizeGray16(temp, slice, scaleY, coeffs, offset, filterLength)
+				resizeGray16(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -326,7 +327,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(temp, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				resizeGeneric(img, slice, scaleX, coeffs, offset, filterLength)
+				resizeGeneric(img, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -338,7 +339,7 @@ func Resize(width, height uint, img image.Image, interp InterpolationFunction) i
 			slice := makeSlice(result, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				resizeRGBA64(temp, slice, scaleY, coeffs, offset, filterLength)
+				resizeRGBA64(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -364,7 +365,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(temp, i, cpus).(*image.RGBA)
 			go func() {
 				defer wg.Done()
-				nearestRGBA(input, slice, scaleX, coeffs, offset, filterLength)
+				nearestRGBA(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -376,7 +377,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(result, i, cpus).(*image.RGBA)
 			go func() {
 				defer wg.Done()
-				nearestRGBA(temp, slice, scaleY, coeffs, offset, filterLength)
+				nearestRGBA(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -393,7 +394,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(temp, i, cpus).(*image.NRGBA)
 			go func() {
 				defer wg.Done()
-				nearestNRGBA(input, slice, scaleX, coeffs, offset, filterLength)
+				nearestNRGBA(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -405,7 +406,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(result, i, cpus).(*image.NRGBA)
 			go func() {
 				defer wg.Done()
-				nearestNRGBA(temp, slice, scaleY, coeffs, offset, filterLength)
+				nearestNRGBA(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -424,7 +425,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(temp, i, cpus).(*ycc)
 			go func() {
 				defer wg.Done()
-				nearestYCbCr(in, slice, scaleX, coeffs, offset, filterLength)
+				nearestYCbCr(in, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -435,7 +436,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(result, i, cpus).(*ycc)
 			go func() {
 				defer wg.Done()
-				nearestYCbCr(temp, slice, scaleY, coeffs, offset, filterLength)
+				nearestYCbCr(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -452,7 +453,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(temp, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				nearestRGBA64(input, slice, scaleX, coeffs, offset, filterLength)
+				nearestRGBA64(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -464,7 +465,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(result, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				nearestRGBA64(temp, slice, scaleY, coeffs, offset, filterLength)
+				nearestRGBA64(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -481,7 +482,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(temp, i, cpus).(*image.NRGBA64)
 			go func() {
 				defer wg.Done()
-				nearestNRGBA64(input, slice, scaleX, coeffs, offset, filterLength)
+				nearestNRGBA64(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -493,7 +494,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(result, i, cpus).(*image.NRGBA64)
 			go func() {
 				defer wg.Done()
-				nearestNRGBA64(temp, slice, scaleY, coeffs, offset, filterLength)
+				nearestNRGBA64(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -510,7 +511,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(temp, i, cpus).(*image.Gray)
 			go func() {
 				defer wg.Done()
-				nearestGray(input, slice, scaleX, coeffs, offset, filterLength)
+				nearestGray(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -522,7 +523,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(result, i, cpus).(*image.Gray)
 			go func() {
 				defer wg.Done()
-				nearestGray(temp, slice, scaleY, coeffs, offset, filterLength)
+				nearestGray(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -539,7 +540,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(temp, i, cpus).(*image.Gray16)
 			go func() {
 				defer wg.Done()
-				nearestGray16(input, slice, scaleX, coeffs, offset, filterLength)
+				nearestGray16(input, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -551,7 +552,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(result, i, cpus).(*image.Gray16)
 			go func() {
 				defer wg.Done()
-				nearestGray16(temp, slice, scaleY, coeffs, offset, filterLength)
+				nearestGray16(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -568,7 +569,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(temp, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				nearestGeneric(img, slice, scaleX, coeffs, offset, filterLength)
+				nearestGeneric(img, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()
@@ -580,7 +581,7 @@ func resizeNearest(width, height uint, scaleX, scaleY float64, img image.Image, 
 			slice := makeSlice(result, i, cpus).(*image.RGBA64)
 			go func() {
 				defer wg.Done()
-				nearestRGBA64(temp, slice, scaleY, coeffs, offset, filterLength)
+				nearestRGBA64(temp, slice, coeffs, offset, filterLength)
 			}()
 		}
 		wg.Wait()

@@ -81,7 +81,8 @@ func lanczos3(in float64) float64 {
 
 // range [-256,256]
 func createWeights8(dy, filterLength int, blur, scale float64, kernel func(float64) float64) ([]int16, []int, int) {
-	filterLength = filterLength * int(math.Max(math.Ceil(blur*scale), 1))
+
+	filterLength *= int(math.Max(math.Ceil(blur*scale), 1))
 	filterFactor := math.Min(1./(blur*scale), 1)
 
 	coeffs := make([]int16, dy*filterLength)
@@ -101,7 +102,8 @@ func createWeights8(dy, filterLength int, blur, scale float64, kernel func(float
 
 // range [-65536,65536]
 func createWeights16(dy, filterLength int, blur, scale float64, kernel func(float64) float64) ([]int32, []int, int) {
-	filterLength = filterLength * int(math.Max(math.Ceil(blur*scale), 1))
+
+	filterLength *= int(math.Max(math.Ceil(blur*scale), 1))
 	filterFactor := math.Min(1./(blur*scale), 1)
 
 	coeffs := make([]int32, dy*filterLength)
@@ -120,7 +122,8 @@ func createWeights16(dy, filterLength int, blur, scale float64, kernel func(floa
 }
 
 func createWeightsNearest(dy, filterLength int, blur, scale float64) ([]bool, []int, int) {
-	filterLength = filterLength * int(math.Max(math.Ceil(blur*scale), 1))
+
+	filterLength *= int(math.Max(math.Ceil(blur*scale), 1))
 	filterFactor := math.Min(1./(blur*scale), 1)
 
 	coeffs := make([]bool, dy*filterLength)

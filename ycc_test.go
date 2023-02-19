@@ -1,3 +1,4 @@
+//go:build go1.5
 // +build go1.5
 
 /*
@@ -30,6 +31,8 @@ type Image interface {
 }
 
 func TestImage(t *testing.T) {
+	t.Parallel()
+
 	testImage := []Image{
 		newYCC(image.Rect(0, 0, 10, 10), image.YCbCrSubsampleRatio420),
 		newYCC(image.Rect(0, 0, 10, 10), image.YCbCrSubsampleRatio422),
@@ -59,6 +62,8 @@ func TestImage(t *testing.T) {
 }
 
 func TestConvertYCbCr(t *testing.T) {
+	t.Parallel()
+
 	testImage := []Image{
 		image.NewYCbCr(image.Rect(0, 0, 50, 50), image.YCbCrSubsampleRatio420),
 		image.NewYCbCr(image.Rect(0, 0, 50, 50), image.YCbCrSubsampleRatio422),
@@ -127,6 +132,8 @@ func TestConvertYCbCr(t *testing.T) {
 }
 
 func TestYCbCr(t *testing.T) {
+	t.Parallel()
+
 	rects := []image.Rectangle{
 		image.Rect(0, 0, 16, 16),
 		image.Rect(1, 0, 16, 16),

@@ -28,6 +28,8 @@ var thumbnailTests = []struct {
 }
 
 func TestThumbnail(t *testing.T) {
+	t.Parallel()
+
 	for i, tt := range thumbnailTests {
 		img := image.NewGray16(image.Rect(0, 0, tt.origWidth, tt.origHeight))
 

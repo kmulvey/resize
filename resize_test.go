@@ -15,6 +15,8 @@ func init() {
 }
 
 func Test_Param1(t *testing.T) {
+	t.Parallel()
+
 	m := Resize(0, 0, img, NearestNeighbor)
 	if m.Bounds() != img.Bounds() {
 		t.Fail()
@@ -22,6 +24,8 @@ func Test_Param1(t *testing.T) {
 }
 
 func Test_Param2(t *testing.T) {
+	t.Parallel()
+
 	m := Resize(100, 0, img, NearestNeighbor)
 	if m.Bounds() != image.Rect(0, 0, 100, 100) {
 		t.Fail()
@@ -29,6 +33,8 @@ func Test_Param2(t *testing.T) {
 }
 
 func Test_ZeroImg(t *testing.T) {
+	t.Parallel()
+
 	zeroImg := image.NewGray16(image.Rect(0, 0, 0, 0))
 
 	m := Resize(0, 0, zeroImg, NearestNeighbor)
@@ -38,6 +44,8 @@ func Test_ZeroImg(t *testing.T) {
 }
 
 func Test_HalfZeroImg(t *testing.T) {
+	t.Parallel()
+
 	zeroImg := image.NewGray16(image.Rect(0, 0, 0, 100))
 
 	m := Resize(0, 1, zeroImg, NearestNeighbor)
@@ -52,6 +60,8 @@ func Test_HalfZeroImg(t *testing.T) {
 }
 
 func Test_CorrectResize(t *testing.T) {
+	t.Parallel()
+
 	zeroImg := image.NewGray16(image.Rect(0, 0, 256, 256))
 
 	m := Resize(60, 0, zeroImg, NearestNeighbor)
@@ -61,6 +71,8 @@ func Test_CorrectResize(t *testing.T) {
 }
 
 func Test_SameColorWithRGBA(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewRGBA(image.Rect(0, 0, 20, 20))
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
@@ -79,6 +91,8 @@ func Test_SameColorWithRGBA(t *testing.T) {
 }
 
 func Test_SameColorWithNRGBA(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewNRGBA(image.Rect(0, 0, 20, 20))
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
@@ -97,6 +111,8 @@ func Test_SameColorWithNRGBA(t *testing.T) {
 }
 
 func Test_SameColorWithRGBA64(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewRGBA64(image.Rect(0, 0, 20, 20))
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
@@ -115,6 +131,8 @@ func Test_SameColorWithRGBA64(t *testing.T) {
 }
 
 func Test_SameColorWithNRGBA64(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewNRGBA64(image.Rect(0, 0, 20, 20))
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
@@ -133,6 +151,8 @@ func Test_SameColorWithNRGBA64(t *testing.T) {
 }
 
 func Test_SameColorWithGray(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewGray(image.Rect(0, 0, 20, 20))
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
@@ -151,6 +171,8 @@ func Test_SameColorWithGray(t *testing.T) {
 }
 
 func Test_SameColorWithGray16(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewGray16(image.Rect(0, 0, 20, 20))
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		for x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {
@@ -169,12 +191,16 @@ func Test_SameColorWithGray16(t *testing.T) {
 }
 
 func Test_Bounds(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewRGBA(image.Rect(20, 10, 200, 99))
 	out := Resize(80, 80, img, Lanczos2)
 	out.At(0, 0)
 }
 
 func Test_SameSizeReturnsOriginal(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewRGBA(image.Rect(0, 0, 10, 10))
 	out := Resize(0, 0, img, Lanczos2)
 
@@ -190,6 +216,8 @@ func Test_SameSizeReturnsOriginal(t *testing.T) {
 }
 
 func Test_PixelCoordinates(t *testing.T) {
+	t.Parallel()
+
 	checkers := image.NewGray(image.Rect(0, 0, 4, 4))
 	checkers.Pix = []uint8{
 		255, 0, 255, 0,
@@ -210,6 +238,8 @@ func Test_PixelCoordinates(t *testing.T) {
 }
 
 func Test_ResizeWithPremultipliedAlpha(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewRGBA(image.Rect(0, 0, 1, 4))
 	for y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {
 		// 0x80 = 0.5 * 0xFF.
@@ -225,6 +255,8 @@ func Test_ResizeWithPremultipliedAlpha(t *testing.T) {
 }
 
 func Test_ResizeWithTranslucentColor(t *testing.T) {
+	t.Parallel()
+
 	img := image.NewNRGBA(image.Rect(0, 0, 1, 2))
 
 	// Set the pixel colors to an "invisible green" and white.
