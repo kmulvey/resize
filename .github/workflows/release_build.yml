@@ -33,6 +33,10 @@ jobs:
           version: latest
           args: --timeout=5m
 
+      - name: List files in the repository
+        run: |
+          ls -al ${{ github.workspace }}
+
       - name: Govulncheck
         uses: kmulvey/govulncheck-action@v1.1.2
 
