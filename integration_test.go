@@ -23,6 +23,7 @@ var interpolationFunctions = map[string]InterpolationFunction{
 	"mitchellNetravali": MitchellNetravali,
 	"lanczos2":          Lanczos2,
 	"lanczos3":          Lanczos3,
+	"nearestNeighbor":   NearestNeighbor,
 }
 
 func TestAllImageAndInterpolationCombos(t *testing.T) {
@@ -30,9 +31,10 @@ func TestAllImageAndInterpolationCombos(t *testing.T) {
 
 	for imgType, img := range images {
 		for funcName, function := range interpolationFunctions {
+
 			m := Resize(50, 50, img, function)
 			if m.Bounds().Dx() != 50 && m.Bounds().Dy() != 50 {
-				fmt.Printf("test failed: image type: %s, InterpolationFunction: %s", imgType, funcName)
+				fmt.Printf("test failed: image type: %s, InterpolationFunction: %s \n", imgType, funcName)
 				t.Fail()
 			}
 		}
