@@ -40,3 +40,16 @@ func TestAllImageAndInterpolationCombos(t *testing.T) {
 		}
 	}
 }
+func TestYCbCrResize(t *testing.T) {
+	t.Parallel()
+
+	var ycbcr = image.NewYCbCr(image.Rect(0, 0, 100, 100), image.YCbCrSubsampleRatio444)
+
+	for funcName, function := range interpolationFunctions {
+		m := Resize(50, 50, ycbcr, function)
+		if m.Bounds().Dx() != 50 && m.Bounds().Dy() != 50 {
+			fmt.Printf("test failed: interpolation function: %s \n", funcName)
+			t.Fail()
+		}
+	}
+}
