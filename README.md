@@ -113,31 +113,31 @@ Original image
 </tr>
 <tr>
 <th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/rings_300_Bicubic.png" /><br>Bicubic</th>
-<th><img src="http://kmulvey.github.com/img/rings_300_MitchellNetravali.png" /><br>Mitchell-Netravali</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/rings_300_MitchellNetravali.png" /><br>Mitchell-Netravali</th>
 </tr>
 <tr>
-<th><img src="http://kmulvey.github.com/img/rings_300_Lanczos2.png" /><br>Lanczos2</th>
-<th><img src="http://kmulvey.github.com/img/rings_300_Lanczos3.png" /><br>Lanczos3</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/rings_300_Lanczos2.png" /><br>Lanczos2</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/rings_300_Lanczos3.png" /><br>Lanczos3</th>
 </tr>
 </table>
 
 ### Real-Life sample
 
 Original image  
-![Original](http://kmulvey.github.com/img/IMG_3694_720.jpg)
+![Original](https://raw.githubusercontent.com/kmulvey/resize/main/examples/IMG_3694_720.jpg)
 
 <table>
 <tr>
-<th><img src="http://kmulvey.github.com/img/IMG_3694_300_NearestNeighbor.png" /><br>Nearest-Neighbor</th>
-<th><img src="http://kmulvey.github.com/img/IMG_3694_300_Bilinear.png" /><br>Bilinear</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/IMG_3694_300_NearestNeighbor.png" /><br>Nearest-Neighbor</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/IMG_3694_300_Bilinear.png" /><br>Bilinear</th>
 </tr>
 <tr>
-<th><img src="http://kmulvey.github.com/img/IMG_3694_300_Bicubic.png" /><br>Bicubic</th>
-<th><img src="http://kmulvey.github.com/img/IMG_3694_300_MitchellNetravali.png" /><br>Mitchell-Netravali</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/IMG_3694_300_Bicubic.png" /><br>Bicubic</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/IMG_3694_300_MitchellNetravali.png" /><br>Mitchell-Netravali</th>
 </tr>
 <tr>
-<th><img src="http://kmulvey.github.com/img/IMG_3694_300_Lanczos2.png" /><br>Lanczos2</th>
-<th><img src="http://kmulvey.github.com/img/IMG_3694_300_Lanczos3.png" /><br>Lanczos3</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/IMG_3694_300_Lanczos2.png" /><br>Lanczos2</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/IMG_3694_300_Lanczos3.png" /><br>Lanczos3</th>
 </tr>
 </table>
 
