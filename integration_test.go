@@ -9,9 +9,13 @@ import (
 var images = map[string]image.Image{
 	"imgAlpha":   image.NewAlpha(image.Rect(0, 0, 100, 100)),
 	"imgAlpha16": image.NewAlpha16(image.Rect(0, 0, 100, 100)),
+	"imgCMYK":    image.NewCMYK(image.Rect(0, 0, 100, 100)),
+	"imgGray":    image.NewGray(image.Rect(0, 0, 100, 100)),
 	"imgGray16":  image.NewGray16(image.Rect(0, 0, 100, 100)),
-	"imgRGBA64":  image.NewRGBA64(image.Rect(0, 0, 100, 100)),
 	"imgNRGBA":   image.NewNRGBA(image.Rect(0, 0, 100, 100)),
+	"imgNRGBA64": image.NewNRGBA64(image.Rect(0, 0, 100, 100)),
+	"imgRGBA":    image.NewRGBA(image.Rect(0, 0, 100, 100)),
+	"imgRGBA64":  image.NewRGBA64(image.Rect(0, 0, 100, 100)),
 }
 var interpolationFunctions = map[string]InterpolationFunction{
 	"bilinear":          Bilinear,
