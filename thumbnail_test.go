@@ -18,6 +18,8 @@ var thumbnailTests = []struct {
 	expectedWidth  uint
 	expectedHeight uint
 }{
+	{10, 1, 1, 1, 1, 1},
+	{1, 10, 1, 1, 1, 1},
 	{5, 5, 10, 10, 5, 5},
 	{10, 10, 5, 5, 5, 5},
 	{10, 50, 10, 10, 2, 10},
