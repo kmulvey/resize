@@ -67,7 +67,19 @@ func TestSinc(t *testing.T) {
 		t.Fail()
 	}
 
-	if sinc(0.35014087480216977) != 0.8101885091467594 {
+	if sinc(3.885618329942118e-06) != 1 {
+		t.Fail()
+	}
+}
+
+func TestLanczos3(t *testing.T) {
+	t.Parallel()
+
+	if lanczos3(0) != 1 {
+		t.Fail()
+	}
+
+	if lanczos3(6) != 0 {
 		t.Fail()
 	}
 }
