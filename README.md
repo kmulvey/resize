@@ -104,15 +104,15 @@ Resize tries to provide sane defaults that should suffice in most cases.
 ### Artificial sample
 
 Original image
-![Rings](http://kmulvey.github.com/img/rings_lg_orig.png)
+![Rings](https://raw.githubusercontent.com/kmulvey/resize/main/examples/rings_lg_orig.png)
 
 <table>
 <tr>
-<th><img src="http://kmulvey.github.com/img/rings_300_NearestNeighbor.png" /><br>Nearest-Neighbor</th>
-<th><img src="http://kmulvey.github.com/img/rings_300_Bilinear.png" /><br>Bilinear</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/rings_300_NearestNeighbor.png" /><br>Nearest-Neighbor</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/rings_300_Bilinear.png" /><br>Bilinear</th>
 </tr>
 <tr>
-<th><img src="http://kmulvey.github.com/img/rings_300_Bicubic.png" /><br>Bicubic</th>
+<th><img src="https://raw.githubusercontent.com/kmulvey/resize/main/examples/rings_300_Bicubic.png" /><br>Bicubic</th>
 <th><img src="http://kmulvey.github.com/img/rings_300_MitchellNetravali.png" /><br>Mitchell-Netravali</th>
 </tr>
 <tr>
