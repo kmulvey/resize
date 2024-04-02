@@ -8,6 +8,7 @@ import (
 )
 
 var img = image.NewGray16(image.Rect(0, 0, 3, 3))
+var imgrgba64 = image.NewRGBA64(image.Rect(0, 0, 100, 100))
 
 func init() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
@@ -269,6 +270,15 @@ func Test_ResizeWithTranslucentColor(t *testing.T) {
 	_, g, _, _ := out.At(0, 0).RGBA()
 	if g != 0x00 {
 		t.Errorf("%+v", g)
+	}
+}
+
+func TestRGBA64(t *testing.T) {
+	t.Parallel()
+
+	m := Resize(50, 50, imgrgba64, NearestNeighbor)
+	if m.Bounds().Dx() != 50 && m.Bounds().Dy() != 50 {
+		t.Fail()
 	}
 }
 
