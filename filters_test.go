@@ -58,9 +58,8 @@ func TestMitchellnetravali(t *testing.T) {
 		t.Fail()
 	}
 
-	var negativeOnePointTwo = mitchellnetravali(-1.2)
 	if runtime.GOOS == "darwin" {
-		if negativeOnePointTwo != -0.014222222215137865 {
+		if mitchellnetravali(-1.2) != -0.014222222215137865 {
 			t.Fail()
 		}
 	} else {
