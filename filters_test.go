@@ -1,6 +1,7 @@
 package resize
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -47,15 +48,21 @@ func TestCubic(t *testing.T) {
 func TestMitchellnetravali(t *testing.T) {
 	t.Parallel()
 
+	fmt.Println(mitchellnetravali(-.1))
 	if mitchellnetravali(-.1) != 0.8700555555201976 {
+		fmt.Println("fail 1")
 		t.Fail()
 	}
 
+	fmt.Println(mitchellnetravali(-1.2))
 	if mitchellnetravali(-1.2) != -0.014222222215138162 {
+		fmt.Println("fail 2")
 		t.Fail()
 	}
 
+	fmt.Println(mitchellnetravali(12))
 	if mitchellnetravali(12) != 0 {
+		fmt.Println("fail 2")
 		t.Fail()
 	}
 }
