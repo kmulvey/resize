@@ -1,7 +1,7 @@
 Resize
 ======
 
-[![resize](https://github.com/kmulvey/resize/actions/workflows/release_build.yml/badge.svg)](https://github.com/kmulvey/resize/actions/workflows/release_build.yml) [![codecov](https://codecov.io/gh/kmulvey/resize/branch/main/graph/badge.svg?token=wp6NcwDC5k)](https://codecov.io/gh/kmulvey/resize) [![Go Report Card](https://goreportcard.com/badge/github.com/kmulvey/resize)](https://goreportcard.com/report/github.com/kmulvey/resize) [![Go Reference](https://pkg.go.dev/badge/github.com/kmulvey/resize.svg)](https://pkg.go.dev/github.com/kmulvey/resize)
+[![Build](https://github.com/kmulvey/resize/actions/workflows/build.yml/badge.svg)](https://github.com/kmulvey/resize/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/kmulvey/resize/branch/main/graph/badge.svg?token=wp6NcwDC5k)](https://codecov.io/gh/kmulvey/resize) [![Go Report Card](https://goreportcard.com/badge/github.com/kmulvey/resize)](https://goreportcard.com/report/github.com/kmulvey/resize) [![Go Reference](https://pkg.go.dev/badge/github.com/kmulvey/resize.svg)](https://pkg.go.dev/github.com/kmulvey/resize)
 
 Image resizing for the [Go programming language](http://golang.org) with common interpolation methods.
 
