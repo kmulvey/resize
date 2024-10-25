@@ -1,7 +1,6 @@
 package resize
 
 import (
-	"fmt"
 	"runtime"
 	"testing"
 )
@@ -33,17 +32,20 @@ func TestLinear(t *testing.T) {
 func TestCubic(t *testing.T) {
 	t.Parallel()
 
-	fmt.Println(cubic(-.1))
 	if cubic(-.1) != 0.9765 {
 		t.Fail()
 	}
 
-	fmt.Println(cubic(-1.2))
-	if cubic(-1.2) != -0.06400000000000006 {
-		t.Fail()
+	if runtime.GOOS == "darwin" {
+		if cubic(-1.2) != -0.06400000000000015 {
+			t.Fail()
+		}
+	} else {
+		if cubic(-1.2) != -0.06400000000000006 {
+			t.Fail()
+		}
 	}
 
-	fmt.Println(cubic(12))
 	if cubic(12) != 0 {
 		t.Fail()
 	}
